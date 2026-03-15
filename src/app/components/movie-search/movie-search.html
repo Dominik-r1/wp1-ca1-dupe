@@ -1,0 +1,10 @@
+<form (ngSubmit)="getMovie()">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="input-group">
+        <input type="text" class="form-control" id="title" [(ngModel)]="title" name="title" placeholder="Search for a movie...">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </div>
+  </div>
+</form>

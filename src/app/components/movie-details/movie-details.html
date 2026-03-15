@@ -1,0 +1,33 @@
+
+<div>
+  <a routerLink="/" class="btn btn-primary mb-3">Back</a>
+</div>
+
+@if (movieService.movie(); as movieData) {
+  <div class="row justify-content-center mt-4">
+    <div class="col-md-8">
+      
+      @if (movieData.Response === "True") {
+        <div class="card shadow-sm">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img [src]="movieData.Poster" [alt]="movieData.Title + ' poster'" class="img-fluid rounded-start">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ movieData.Title }}</h5>
+                <p class="card-text text-muted">{{ movieData.Year }} | {{ movieData.Runtime }}</p>
+                <p class="card-text"><strong>Director:</strong> {{ movieData.Director }}</p>
+                <p class="card-text"><strong>Actors:</strong> {{ movieData.Actors }}</p>
+                <p class="card-text"><strong>IMDb Rating:</strong> {{ movieData.imdbRating }}</p>
+                <p class="card-text">{{ movieData.Plot }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      } @else {
+        <div class="alert alert-danger">{{ movieData.Error }}</div>
+      }
+    </div>
+  </div>
+}
